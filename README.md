@@ -213,3 +213,50 @@ Un function type representa la estructura que tendrá la función a la cual se a
 Los decorators son muy utilizados en Angular, estos son una declaración que tiene TypeScript para poder extender la funcionalidad de distintos elementos ya sea una clase, un parámetro, una propiedad o una función.
 
 En una función decorator, el parámetro target hace referencia al objeto que posee el decorador y el parámetro propertyKey, o key, hace referencia al elemento que extendemos.
+
+```typescript
+function log(target, key) {
+  console.log(key + ' was call')
+}
+
+class PersonaDec {
+  private name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+
+  @log
+  sayMyName() {
+    console.log(this.name)
+  }
+}
+
+const persona = new PersonaDec('Aaron')
+persona.sayMyName() // 'Aaron' // ''sayMyName was call
+```
+
+### DECORATORS: APLICACIÓN EN CLASES
+
+```typescript
+  function init(target) {
+    return class extends target {
+      nombre = 'Aaron'
+      apellido = 'Isaacs'
+
+      sayMyName() {
+        return `${this.nombre} ${this.apellido}`
+      }
+    }
+  }
+
+  @init
+  class P {
+    constructor() {}
+    sayMyName() {}
+  }
+
+  const per: P = new P()
+  console.log(per.sayMyName()) // Aaron Isaacs
+```
+
