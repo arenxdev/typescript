@@ -260,3 +260,77 @@ persona.sayMyName() // 'Aaron' // ''sayMyName was call
   console.log(per.sayMyName()) // Aaron Isaacs
 ```
 
+### DECORATORS: APLICACIÓN DE PROPIEDADES
+
+```typescript
+function logProperty(target, key) {
+  let _val = this[key]
+
+  const getter = () => {
+    console.log(`Get: ${key} => ${_val}`)
+    return _val
+  }
+  const setter = (newValue) => {
+    console.log(`Set: ${key} => ${newValue}`)
+    _val = newValue
+  }
+
+  const objectProperty = {
+    get: getter,
+    set: setter
+  }
+
+  Object.defineProperty(target, key, objectProperty)
+}
+
+class Persona {
+  @logProperty
+  public name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+
+}
+
+const p: Persona = new Persona('Aaron')
+
+p.name = 'Platzi'
+const nameFromClass = p.name
+```
+
+### DECORATORS: APLICACIÓN EN PARÁMETROS
+
+```typescript
+function logParameter(target, propertyName, index) {
+  const metaDataKey = `log_${propertyName}_parameters`
+  if (Array.isArray(target[metaDataKey])) {
+    target[metaDataKey].push(index)
+  } else {
+    target[metaDataKey] = [index]
+  }
+  console.log(target[metaDataKey])
+}
+
+class Person {
+  greet(message: string, @logParameter additionalString: string): string {
+    return message
+  }
+}
+
+const person = new Person()
+person.greet('Hola', 'Aaron')
+```
+
+## PREPARANDO EL ENTORNO PARA NUESTRO PROYECTO
+
+### ¿QUÉ ES ANGULAR?
+
+Desarrollado por Google, Angular es más que un framework, es una plataforma que nos da la posibilidad de desarrollar aplicaciones web como aplicaciones mobile. Además, es un framework de estructura que nos va a brindar funcionalidades para extender el template de nuestra aplicación.
+
+Algunas ventajas que trae Angular son:
+
+- Rapidez.
+- Mayor estructura y control del proyecto.
+- SPA.
+- Gran comunidad que ayuda con cualquier problema.
