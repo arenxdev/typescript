@@ -10,13 +10,13 @@ TypeScript es un lenguaje fuertemente tipado creado por Microsoft, aunque está 
 
 A diferencia de JavaScript, TypeScript es un lenguaje fuertemente tipado. Mientras que en JavaScript declaramos una constante de la siguiente manera:
 
-```javascript
+``` javascript
   const a = 'hola'
 ```
 
 En TypeScript utilizando el carácter ‘:’ le asignamos un tipo de dato a la variable :
 
-```javascript
+``` javascript
   const a: string = 'hola'
 ```
 
@@ -26,60 +26,59 @@ Si le asignamos el tipo de dato any a una variable, esta variable va a poder alm
 
 Dentro de TypeScript contamos con la palabra reservada type que nos va a ser de utilidad cuando hagamos nuestros propios tipos de datos.
 
-```javascript
+``` javascript
   class Transporte {
-    private velocidad: number
-    private formaDeMovilidad: string
+      private velocidad: number
+      private formaDeMovilidad: string
 
-    constructor(velocidad: number, formaDeMovilidad: string) {
-      this.velocidad = velocidad
-      this.formaDeMovilidad = formaDeMovilidad
-    }
+      constructor(velocidad: number, formaDeMovilidad: string) {
+          this.velocidad = velocidad
+          this.formaDeMovilidad = formaDeMovilidad
+      }
 
-    getVelocidad() {
-      return this.velocidad
-    }
+      getVelocidad() {
+          return this.velocidad
+      }
 
-    setVelocidad(velocidad: number) {
-      this.velocidad = velocidad
-    }
+      setVelocidad(velocidad: number) {
+          this.velocidad = velocidad
+      }
 
-    getFormaDeMovilidad() {
-      return this.formaDeMovilidad
-    }
+      getFormaDeMovilidad() {
+          return this.formaDeMovilidad
+      }
 
-    setFormaDeMovilidad(formaDeMovilidad: string) {
-      this.formaDeMovilidad = formaDeMovilidad
-    }
+      setFormaDeMovilidad(formaDeMovilidad: string) {
+          this.formaDeMovilidad = formaDeMovilidad
+      }
 
   }
 
   const transporte: Transporte = new Transporte(20, 'suelo')
 
   class Auto extends Transporte {
-    private cantidadDePuertas: number
+      private cantidadDePuertas: number
 
-    constructor(velocidad: number, formaDeMovilidad: string, cantidadDePuertas: number) {
-      super(velocidad, formaDeMovilidad)
-      this.cantidadDePuertas = cantidadDePuertas
-    }
+      constructor(velocidad: number, formaDeMovilidad: string, cantidadDePuertas: number) {
+          super(velocidad, formaDeMovilidad)
+          this.cantidadDePuertas = cantidadDePuertas
+      }
 
-    getVelocidad() {
-      return super.getVelocidad() + 10
-    }
+      getVelocidad() {
+          return super.getVelocidad() + 10
+      }
 
-    getCantidadDePuertas() {
-      return this.cantidadDePuertas
-    }
+      getCantidadDePuertas() {
+          return this.cantidadDePuertas
+      }
 
-    setCantidadDePuertas(cantidadDePuertas: number) {
-      this.cantidadDePuertas = cantidadDePuertas
-    }
+      setCantidadDePuertas(cantidadDePuertas: number) {
+          this.cantidadDePuertas = cantidadDePuertas
+      }
 
   }
 
   const auto: Transporte = new Auto(20, 'suelo', 4)
-
 ```
 
 ### INTERFACES
@@ -88,23 +87,23 @@ Una interfaz es un tipo abstracto que sirve como **contrato** para la estructura
 
 Dentro de las interfaces en TypeScript podemos manejar propiedades opcionales añadiendo el signo de pregunta ‘?’ al final del nombre de la propiedad.
 
-```javascript
+``` javascript
   type Dni = number
 
   interface Persona {
-    altura?: number
-    edad: number
-    nombre: string
-    apellido: string
-    dni: Dni
+      altura ? : number
+      edad: number
+      nombre: string
+      apellido: string
+      dni: Dni
   }
 
   const persona: Persona = {
-    altura: 1.69,
-    edad: 27,
-    nombre: 'Aaron',
-    apellido: 'Isaacs',
-    dni: 20000,
+      altura: 1.69,
+      edad: 27,
+      nombre: 'Aaron',
+      apellido: 'Isaacs',
+      dni: 20000,
   }
 ```
 
@@ -112,27 +111,27 @@ Dentro de las interfaces en TypeScript podemos manejar propiedades opcionales a�
 
 Cada uno de los tipos tiene una forma o estructura en que es representado, esto es mediante sus propiedades. Dentro de TypeScript si dos variables poseen propiedades idénticas aunque sean de distintas interfaces o clases, estas pueden ser asignadas entre sí.
 
-```javascript
+``` javascript
   class Person {
-    private edad: number
-    private altura: number
-    private dni: string
+      private edad: number
+      private altura: number
+      private dni: string
 
-    constructor(edad: number, altura: number, dni: string) {
-      this.edad = edad
-      this.altura = altura
-      this.dni = dni
-    }
+      constructor(edad: number, altura: number, dni: string) {
+          this.edad = edad
+          this.altura = altura
+          this.dni = dni
+      }
 
   }
 
   class Alumno extends Person {
-    private matricula: string
+      private matricula: string
 
-    constructor(edad: number, altura: number, dni: string, matricula: string) {
-      super(edad, altura, dni)
-      this.matricula = matricula
-    }
+      constructor(edad: number, altura: number, dni: string, matricula: string) {
+          super(edad, altura, dni)
+          this.matricula = matricula
+      }
 
   }
 
@@ -145,27 +144,27 @@ Cada uno de los tipos tiene una forma o estructura en que es representado, esto 
 
 Habrá ocasiones en las que necesitemos asignar variables con más de un tipo, para evitar el uso de any debemos usar union types. Utilizando el signo ‘|’ podemos indicarle a TypeScript que utilice uno u otro tipo de dato, por ejemplo:
 
-```javascript
-  type SumaParameter  = string | number
+``` javascript
+  type SumaParameter = string | number
   type sumeReturnType = number | string
 
   function suma(num1: SumaParameter, num2: SumaParameter): sumeReturnType {
-    return String(num1) + num2
+      return String(num1) + num2
   }
 
   interface InterfaceOne {
-    prop1: number
+      prop1: number
   }
 
   interface InterfaceTwo {
-    prop2: number
+      prop2: number
   }
 
   type InterfaceMix = InterfaceOne | InterfaceTwo
 
   const interfaceMix: InterfaceMix = {
-    prop1: 2,
-    prop2: 1
+      prop1: 2,
+      prop2: 1
   }
 ```
 
@@ -173,22 +172,22 @@ Habrá ocasiones en las que necesitemos asignar variables con más de un tipo, p
 
 Mientras que el union type nos es útil para variables con más de un tipo de dato, intersection types nos permite combinar varios tipos de dato utilizando el signo ‘&’.
 
-```javascript
+``` javascript
   interface Interface1 {
-    prop1: number
+      prop1: number
   }
 
   interface Interface2 {
-    porp2: number,
-    prop3: number
+      porp2: number,
+          prop3: number
   }
 
   type InterfaceMix = Interface1 & Interface2
 
   const interfaceMix: InterfaceMix = {
-    prop1: 2,
-    porp2: 1,
-    prop3: 5
+      prop1: 2,
+      porp2: 1,
+      prop3: 5
   }
 ```
 
@@ -196,15 +195,17 @@ Mientras que el union type nos es útil para variables con más de un tipo de da
 
 Un function type representa la estructura que tendrá la función a la cual se aplica el tipo y únicamente funciona para tipos de funciones.
 
-```javascript
+``` javascript
   type CallBackError = Error | null
   type CallBack = (error: CallBackError, response: Object) => void
   type SendRequest = (cb: CallBack) => void
 
   const sentRequest: SendRequest = (cb: CallBack): void => {
-    if (cb) {
-      cb(null, {message: 'Everything is okey'})
-    }
+      if (cb) {
+          cb(null, {
+              message: 'Everything is okey'
+          })
+      }
   }
 ```
 
@@ -214,7 +215,7 @@ Los decorators son muy utilizados en Angular, estos son una declaración que tie
 
 En una función decorator, el parámetro target hace referencia al objeto que posee el decorador y el parámetro propertyKey, o key, hace referencia al elemento que extendemos.
 
-```typescript
+``` typescript
 function log(target, key) {
   console.log(key + ' was call')
 }
@@ -238,7 +239,7 @@ persona.sayMyName() // 'Aaron' // ''sayMyName was call
 
 ### DECORATORS: APLICACIÓN EN CLASES
 
-```typescript
+``` typescript
   function init(target) {
     return class extends target {
       nombre = 'Aaron'
@@ -262,16 +263,20 @@ persona.sayMyName() // 'Aaron' // ''sayMyName was call
 
 ### DECORATORS: APLICACIÓN DE PROPIEDADES
 
-```typescript
+Los decorators son muy utilizados en Angular, estos son una declaración que tiene TypeScript para poder extender la funcionalidad de distintos elementos ya sea una clase, un parámetro, una propiedad o una función.
+
+En una función decorator, el parámetro **target** hace referencia al objeto que posee el decorador y el parámetro **propertyKey**, o **key**, hace referencia al elemento que extendemos.
+
+``` typescript
 function logProperty(target, key) {
   let _val = this[key]
 
   const getter = () => {
-    console.log(`Get: ${key} => ${_val}`)
+    console.log( `Get: ${key} => ${_val}` )
     return _val
   }
   const setter = (newValue) => {
-    console.log(`Set: ${key} => ${newValue}`)
+    console.log( `Set: ${key} => ${newValue}` )
     _val = newValue
   }
 
@@ -301,7 +306,7 @@ const nameFromClass = p.name
 
 ### DECORATORS: APLICACIÓN EN PARÁMETROS
 
-```typescript
+``` typescript
 function logParameter(target, propertyName, index) {
   const metaDataKey = `log_${propertyName}_parameters`
   if (Array.isArray(target[metaDataKey])) {
@@ -330,10 +335,10 @@ Desarrollado por Google, Angular es más que un framework, es una plataforma que
 
 Algunas ventajas que trae Angular son:
 
-- Rapidez.
-- Mayor estructura y control del proyecto.
-- SPA.
-- Gran comunidad que ayuda con cualquier problema.
+* Rapidez.
+* Mayor estructura y control del proyecto.
+* SPA.
+* Gran comunidad que ayuda con cualquier problema.
 
 ### ANGULAR CLI Y VISUAL STUDIO CODE
 
@@ -343,8 +348,8 @@ Para este curso y para trabajar con TypeScript o Angular, es muy recomendado uti
 
 #### Configuración VS CODE - PRETTIER
 
-“prettier.singleQuote”: true,
-“prettier.printWidth”: 140,
+“prettier.singleQuote”: true, 
+“prettier.printWidth”: 140, 
 
 ### CREANDO NUESTRO PROYECTO EM ANGULAR CLI
 
@@ -381,19 +386,19 @@ Angular CLI es el CLI más completo para trabajar.
 
 Desventajas:
 
-- Al ser un framework tan robusto su curva de aprendizaje es muy elevada y compleja.
-- Tendremos código repetitivo que genera archivos muy grandes.
+* Al ser un framework tan robusto su curva de aprendizaje es muy elevada y compleja.
+* Tendremos código repetitivo que genera archivos muy grandes.
 
 #### React
 
 Ventajas:
 
-- Creado por Facebook, ofrece una gran flexibilidad para trabajar basado en componentes.
-- Cuenta con una gran comunidad, por lo tanto muchos problemas con los que te encuentres ya habrán sido resueltos por alguien.
+* Creado por Facebook, ofrece una gran flexibilidad para trabajar basado en componentes.
+* Cuenta con una gran comunidad, por lo tanto muchos problemas con los que te encuentres ya habrán sido resueltos por alguien.
 
 Desventajas:
 
-- Hay muchas formas de resolver un mismo problema, por lo tanto hay miles de librerías y tal vez pocas sean la solución correcta.
+* Hay muchas formas de resolver un mismo problema, por lo tanto hay miles de librerías y tal vez pocas sean la solución correcta.
 
 #### Vue
 
