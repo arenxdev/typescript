@@ -84,7 +84,7 @@ Dentro de TypeScript contamos con la palabra reservada type que nos va a ser de 
 
 ### INTERFACES
 
-Una interfaz es un tipo abstracto que sirve como contrato para la estructura de un objeto y al igual que las clases puede ser utilizada como un tipo de dato. Para declarar una interfaz en TypeScript utilizamos la palabra clave interface.
+Una interfaz es un tipo abstracto que sirve como **contrato** para la estructura de un objeto y al igual que las clases puede ser utilizada como un tipo de dato. Para declarar una interfaz en TypeScript utilizamos la palabra clave interface.
 
 Dentro de las interfaces en TypeScript podemos manejar propiedades opcionales añadiendo el signo de pregunta ‘?’ al final del nombre de la propiedad.
 
@@ -324,7 +324,7 @@ person.greet('Hola', 'Aaron')
 
 ## PREPARANDO EL ENTORNO PARA NUESTRO PROYECTO
 
-### ¿QUÉ ES ANGULAR?
+### ¿QUÉ ES ANGULAR? FRAMEWORK
 
 Desarrollado por Google, Angular es más que un framework, es una plataforma que nos da la posibilidad de desarrollar aplicaciones web como aplicaciones mobile. Además, es un framework de estructura que nos va a brindar funcionalidades para extender el template de nuestra aplicación.
 
@@ -334,3 +334,71 @@ Algunas ventajas que trae Angular son:
 - Mayor estructura y control del proyecto.
 - SPA.
 - Gran comunidad que ayuda con cualquier problema.
+
+### ANGULAR CLI Y VISUAL STUDIO CODE
+
+Angular CLI es la interfaz de línea de comandos de Angular con la cual desde una terminal puedes crear aplicaciones, generar componentes, montar un servidor local para tu aplicación y testear tu proyecto.
+
+Para este curso y para trabajar con TypeScript o Angular, es muy recomendado utilizar el editor de código Visual Studio Code.
+
+#### Configuración VS CODE - PRETTIER
+
+“prettier.singleQuote”: true,
+“prettier.printWidth”: 140,
+
+### CREANDO NUESTRO PROYECTO EM ANGULAR CLI
+
+Para preparar nuestro entorno de trabajo lo primero que debemos hacer es instalar Node.js. Una vez tenemos instalado Node en nuestro computador, debemos instalar el CLI de Angular mediante el comando:
+
+> npm install -g @angular/cli
+
+Ya que tenemos listo el CLI, creamos nuestro proyecto con el siguiente comando y contestando las preguntas de configuración que nos haga:
+
+> ng new typescript-platzi
+
+### ¿QUÉ ES FIREBASE? IMPLEMENTANDO FIREBASE EN NUESTRO PROYECTO
+
+Firebase es un SAAS de Google que nos ayuda en la creación de aplicaciones web y móvil. Firebase nos brinda una opción sencilla y rápida para nuestra base de datos y backend.
+
+Dentro de Firebase podemos tener bases de datos en tiempo real o realtime databases. Podemos usar Firebase independientemente del lenguaje o framework en el que estemos trabajando.
+
+Para añadir Firebase a nuestro proyecto debemos instalar algunas dependencias con el comando:
+
+> npm -s firebase angularfire2
+
+### DIFERENCIAS ENTRE ANGULAR, REACT, VUE
+
+Cuando vamos iniciando en el mundo del front-end o simplemente estamos creando un nuevo proyecto nos encontraremos con una importante pregunta:
+¿Qué framework debo utilizar?
+
+Lo primero que te llega a la mente va a ser los tres frameworks más populares:
+
+#### Angular
+
+Si tienes un proyecto complejo y robusto Angular es tu mejor opción ya que al estar pensado en trabajar con TypeScript ofrece una gran robustez, estructura y control.
+
+Angular CLI es el CLI más completo para trabajar.
+
+Desventajas:
+
+- Al ser un framework tan robusto su curva de aprendizaje es muy elevada y compleja.
+- Tendremos código repetitivo que genera archivos muy grandes.
+
+#### React
+
+Ventajas:
+
+- Creado por Facebook, ofrece una gran flexibilidad para trabajar basado en componentes.
+- Cuenta con una gran comunidad, por lo tanto muchos problemas con los que te encuentres ya habrán sido resueltos por alguien.
+
+Desventajas:
+
+- Hay muchas formas de resolver un mismo problema, por lo tanto hay miles de librerías y tal vez pocas sean la solución correcta.
+
+#### Vue
+
+También está basado en componentes, cuenta con una gran usabilidad y una curva de aprendizaje muy fácil.
+
+Su mayor desventaja es que al ser muy nuevo, su comunidad es muy nueva y es probable que los problemas con los que te encuentres tendrás que crear tu propia solución.
+
+Ningún framework es mejor que el otro, cada uno cumple una funcionalidad distinta y cuenta con sus propias ventajas y desventajas.
