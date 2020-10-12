@@ -369,7 +369,7 @@ Dentro de Firebase podemos tener bases de datos en tiempo real o realtime databa
 
 Para añadir Firebase a nuestro proyecto debemos instalar algunas dependencias con el comando:
 
-> npm -s firebase angularfire2
+> npm install firebase @angular/fire --save
 
 ### DIFERENCIAS ENTRE ANGULAR, REACT, VUE
 
@@ -407,3 +407,6 @@ También está basado en componentes, cuenta con una gran usabilidad y una curva
 Su mayor desventaja es que al ser muy nuevo, su comunidad es muy nueva y es probable que los problemas con los que te encuentres tendrás que crear tu propia solución.
 
 Ningún framework es mejor que el otro, cada uno cumple una funcionalidad distinta y cuenta con sus propias ventajas y desventajas.
+
+## DESARROLLO DE LA APLICACIÓN
+
